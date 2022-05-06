@@ -1,16 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:meals/models/meal.dart';
+import 'package:meals/utils/app_routes.dart';
 
 class MealItem extends StatelessWidget {
   const MealItem(this.meal, {Key? key}) : super(key: key);
   final Meal meal;
 
-  _selectMeal() {}
+  void _selectMeal(BuildContext context) {
+    Navigator.of(context).pushNamed(
+      AppRoutes.MEAL_DETAIL,
+      arguments: meal,
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return InkWell(
       splashColor: Theme.of(context).colorScheme.primary,
-      onTap: () => _selectMeal(),
+      onTap: () => _selectMeal(context),
       child: Card(
         elevation: 4,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
@@ -59,6 +66,7 @@ class MealItem extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
                   Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: <Widget>[
                       const Icon(Icons.schedule),
                       const SizedBox(
@@ -68,6 +76,7 @@ class MealItem extends StatelessWidget {
                     ],
                   ),
                   Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       const Icon(Icons.work),
                       const SizedBox(width: 6),
@@ -75,6 +84,7 @@ class MealItem extends StatelessWidget {
                     ],
                   ),
                   Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: <Widget>[
                       const Icon(Icons.attach_money),
                       const SizedBox(width: 6),
