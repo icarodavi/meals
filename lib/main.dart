@@ -1,7 +1,6 @@
 import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:meals/screens/meal_details_screen.dart';
-import 'screens/categories_screen.dart';
 import 'screens/categories_meals_screen.dart';
 import 'utils/app_routes.dart';
 
@@ -32,7 +31,7 @@ class MyApp extends StatelessWidget {
       theme: tema.copyWith(
           colorScheme: tema.colorScheme.copyWith(
             primary: Colors.indigo[400],
-            secondary: Colors.amber,
+            secondary: Colors.amber[400],
           ),
           textTheme: tema.textTheme.copyWith(
             headline6: const TextStyle(
