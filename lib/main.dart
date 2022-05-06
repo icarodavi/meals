@@ -5,6 +5,8 @@ import 'screens/categories_screen.dart';
 import 'screens/categories_meals_screen.dart';
 import 'utils/app_routes.dart';
 
+import 'screens/tabs_screen.dart';
+
 void main() {
   runApp(MyApp());
 }
@@ -17,7 +19,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Vamos Cozinhar',
       routes: {
-        AppRoutes.HOME: (context) => CategoriesScreen(
+        AppRoutes.HOME: (context) => TabsScreen(
               key: ValueKey(Random().nextInt(100)),
             ),
         AppRoutes.CATEGORIES_MEALS: (context) => CategoriesMealsScreen(
