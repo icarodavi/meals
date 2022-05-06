@@ -25,7 +25,7 @@ class MyApp extends StatelessWidget {
       },
       theme: tema.copyWith(
           colorScheme: tema.colorScheme.copyWith(
-            primary: Colors.pink,
+            primary: Colors.indigo[400],
             secondary: Colors.amber,
           ),
           textTheme: tema.textTheme.copyWith(
