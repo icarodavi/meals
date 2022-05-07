@@ -42,8 +42,8 @@ class MainDrawer extends StatelessWidget {
             ),
           ),
         ),
-        _createItem(Icons.restaurant, 'Refeições',
-            () => Navigator.of(context).restorablePushNamed(AppRoutes.HOME)),
+        _createItem(Icons.restaurant, 'Home',
+            () => Navigator.of(context).pushReplacementNamed(AppRoutes.HOME)),
         const Divider(
           thickness: 0.8,
         ),
@@ -51,7 +51,7 @@ class MainDrawer extends StatelessWidget {
             Icons.settings,
             'Configurações',
             () =>
-                Navigator.of(context).restorablePushNamed(AppRoutes.SETTINGS)),
+                Navigator.of(context).pushReplacementNamed(AppRoutes.SETTINGS)),
         // const Divider(
         //   thickness: 0.8,
         // ),
