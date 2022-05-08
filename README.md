@@ -1,6 +1,6 @@
-# meals
+# Vamos Cozinhar?
 
-A new Flutter project.
+A Flutter project with some recipes and help the user to cook them.
 
 ## Getting Started
 
