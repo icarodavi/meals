@@ -27,6 +27,7 @@ class _MyAppState extends State<MyApp> {
   Settings settings = Settings();
 
   List<Meal> _availableMeals = DUMMY_MEALS;
+  List<Meal> _favoriteMeals = [];
 
   void _filterMeals(Settings settings) {
     setState(() {
@@ -44,15 +45,28 @@ class _MyAppState extends State<MyApp> {
     });
   }
 
+  _toggleFavorite(Meal meal) {
+    setState(() {
+      _favoriteMeals.contains(meal)
+          ? _favoriteMeals.remove(meal)
+          : _favoriteMeals.add(meal);
+    });
+  }
+
+  bool _isMealFavorite(Meal meal) {
+    return _favoriteMeals.contains(meal);
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Vamos Cozinhar',
       routes: {
-        AppRoutes.HOME: (context) => const TabsScreen(),
+        AppRoutes.HOME: (context) => TabsScreen(_favoriteMeals),
         AppRoutes.CATEGORIES_MEALS: (context) =>
             CategoriesMealsScreen(_availableMeals),
-        AppRoutes.MEAL_DETAIL: (context) => const MealDetail(),
+        AppRoutes.MEAL_DETAIL: (context) =>
+            MealDetail(_toggleFavorite, _isMealFavorite),
         AppRoutes.SETTINGS: (context) => SettingsScreen(_filterMeals, settings),
       },
       theme: tema.copyWith(
